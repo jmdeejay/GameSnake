@@ -49,6 +49,7 @@ function Snake(parent){
   }
   
   this.Update = function(){
+    // For oldschool sake, fake low framerate.
     if(frameCount % 6 == 0){ // 60 % 6 = 10 fps
       // Update keypressed
       this.keyPressed();

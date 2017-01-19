@@ -8,6 +8,8 @@ var cols;
 var rows;
 
 function preload(){
+  soundFormats('mp3', 'ogg');
+  // mySound = loadSound('../sounds/beatbox.mp3');
   fnt = loadFont("data/asimov.otf");
 }
 
@@ -18,6 +20,7 @@ function setup() {
   cols = floor(width / scl);
   rows = floor(height / scl);
   newGame();
+  // mySound.play();
 }
 
 function newGame(){
@@ -26,13 +29,6 @@ function newGame(){
   GameOver = false;
   s = new Snake(this);
   food = new Food(this);
-}
-
-  
-function mousePressed(){
-  if(s != null){
-    s.total++;
-  }
 }
 
 function keyPressed(){
@@ -56,6 +52,7 @@ function draw() {
   }else{
     // Update / Draw food
     if(food!=null){food.Update();}
+    
     // Update / Draw snake
     if(s!=null){s.Update();}
     

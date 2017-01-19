@@ -1,4 +1,5 @@
 function Food(parent){
+  this.t = 0;
   this.x = floor(random(cols)) * scl;
   this.y = floor(random(rows)) * scl;
   this.parent = parent;
@@ -8,11 +9,14 @@ function Food(parent){
   }
   
   this.Show = function(){
+    push();
     fill(255, 0, 100);
-    // pushMatrix();
-    // translate(scl / 2, scl / 2);  
-    // rotate(radians(1));
-    rect(this.x, this.y, scl, scl);
-    // popMatrix();
+    rectMode(CENTER);
+    translate(this.x + (scl / 2), this.y + (scl / 2));  
+    rotate(radians(this.t));
+    rect(0, 0, scl, scl);
+    pop();
+    this.t += 1;
+    if(this.t >= 360){ this.t = 0; }
   }
 }
